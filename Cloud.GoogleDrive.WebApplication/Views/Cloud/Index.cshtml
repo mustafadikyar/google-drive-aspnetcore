@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Cloud", FormMethod.Post, new { @class = "w-50 mx-auto p-4 mt-5 shadow", enctype = "multipart/form-data" }))
+    {
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    Please, choose a file.
+                </li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="form-group form-control-file col-12">
+                <input type="file" class="form-control-file btn btn-light" name="file">
+            </div>
+            <div class="col-12 mt-3">
+                <input type="submit" class="btn btn-success" value="Upload File" /> <br />
+            </div>
+
+            @if (ViewBag.Success != null)
+            {
+                <div class="alert alert-success col-11 ml-3 mt-3 text-center" role="alert">
+                    @ViewBag.Success
+                </div>
+            }
+
+            @if (ViewBag.Failed != null)
+            {
+                <div class="alert alert-danger col-11 ml-3 mt-3 text-center" role="alert">
+                    @ViewBag.Failed
+                </div>
+            }
+        </div>
+    }
+    <script src="~/Content/twitter-bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
